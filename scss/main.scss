@@ -20,8 +20,8 @@ body {
   min-height: 100svh;
 }
 main {
-  width: 450px;
-  max-width: 450px;
+  width: 540px;
+  max-width: 540px;
   // margin: 0 auto;
   > * {
     border-radius: 1rem;
@@ -88,18 +88,47 @@ img {
   }
 }
 .chart {
-  @include flexDisplay(flex-end, space-between);
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: flex-end;
+  gap: 2px;
+  margin-top: 3rem;
+  
   #{&}__day {
     @include flexDisplay(center, flex-end);
     flex-direction: column;
-    gap: 1rem;
+    gap: a.$chart-gap / 2;
     font-size: .8rem;
+    cursor: pointer;
+    > div {
+      transition: all 350ms;
+    }
+    &:hover {
+      .chart__bar {
+        opacity: .8;
+      }
+      .chart__value {
+        opacity: 1;
+      }
+    }
+  }
+  #{&}__day.today #{&}__bar {
+    background-color: a.$color-cyan;
   }
   #{&}__bar {
     background-color: a.$color-red;
+    width: calc(100% - a.$chart-gap);
+    border-radius: a.$bar-border-radius;
   }
-  #{&}__bar.today {
-    background-color: a.$color-cyan;
+  #{&}__value {
+    background-color: a.$color-brown-dk;
+    color: a.$color-orange-lt;
+    width: 100%;
+    padding: 6px;
+    border-radius: a.$bar-border-radius;
+    text-align: center;
+    font-weight: fWeight(bold);
+    opacity: 0;
   }
 }
 

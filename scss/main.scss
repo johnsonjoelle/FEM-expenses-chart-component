@@ -1,0 +1,116 @@
+@use './abstracts' as a;
+
+@function fWeight($weight) {
+  @return map-get(a.$font-weights, $weight);
+}
+
+@mixin flexDisplay($align, $justified) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justified;
+}
+
+body {
+  @include flexDisplay(center, center);
+  font-size: a.$font-size;
+  background-color: a.$color-cream;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: fWeight(regular);
+  min-height: 100vh;
+  min-height: 100svh;
+}
+main {
+  width: 450px;
+  max-width: 450px;
+  // margin: 0 auto;
+  > * {
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+  }
+}
+img {
+  max-height: 100%;
+  width: auto;
+}
+.brown-txt {
+  color: a.$color-brown-dk;
+}
+
+.balance {
+  @include flexDisplay(center, space-between);
+  background-color: a.$color-red;
+  color: a.$color-orange-lt;
+  margin-bottom: 1rem;
+  
+  .label {
+    font-size: .85rem;
+    margin-bottom: .4rem;
+  }
+  #{&}__amt {
+    font-weight: fWeight(bold);
+    font-size: 1.5rem;
+  }
+  #{&}__logo {
+    height: 40px;
+  }
+}
+
+.details {
+  background-color: a.$color-orange-lt;
+
+  .label {
+    color: a.$color-brown-md;
+  }
+
+  #{&}__chart-container {
+    margin-bottom: 1.5rem;
+  }
+
+  #{&}__totals {
+    @include flexDisplay(flex-end, space-between);
+    padding: 1.5rem 0 1rem;
+    border-top: 2px solid a.$color-cream;
+
+    .value {
+      font-size: 2.6rem;
+      font-weight: fWeight(bold);
+    }
+    .label {
+      font-size: .9rem;
+    }
+    .totals-previous {
+      text-align: right;
+    }
+    .percntg {
+      font-weight: fWeight(bold);
+      font-size: .95rem;
+    }
+  }
+}
+.chart {
+  @include flexDisplay(flex-end, space-between);
+  #{&}__day {
+    @include flexDisplay(center, flex-end);
+    flex-direction: column;
+    gap: 1rem;
+    font-size: .8rem;
+  }
+  #{&}__bar {
+    background-color: a.$color-red;
+  }
+  #{&}__bar.today {
+    background-color: a.$color-cyan;
+  }
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  a {
+    color: hsl(228, 45%, 44%);
+  }
+}

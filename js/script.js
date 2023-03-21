@@ -3,40 +3,31 @@ class WeekSummary{
     this.target = target;
     this.maxHeight = 130;
     this.maxAmount = 0;
-    this.today = 0;
+    this.maxDay = 0;
     fetch(dataSource)
     .then(response => response.json())
     .then(data => {
       this.weekArray = data;
-      this.findToday();
       this.buildChart();
     })
     .catch(error => console.log(error));
   }
   findDayAmount() {
-    this.weekArray.forEach(day => {
-      if (day.amount > this.maxAmount) {
-        this.maxAmount = day.amount;
+    for (let i = 0; i < this.weekArray.length; i++) {
+      if (this.weekArray[i].amount > this.maxAmount) {
+        this.maxAmount = this.weekArray[i].amount;
+        this.maxDay = i;
       }
-    });
-  }
-  findToday() {
-    const date = new Date();
-    // Correct day number to match data.json index
-    let dayIndex = date.getDay() - 1;
-    if (dayIndex < 0) {
-      dayIndex = 6;
     }
-    this.today = dayIndex;
   }
   buildChart() {
     this.findDayAmount();
     for (let i=0; i<this.weekArray.length; i++) {
       let dayOfWeek = document.createElement("div");
       dayOfWeek.classList.add('chart__day');
-      console.log(this.today);
-      if (i==this.today) {
-        dayOfWeek.classList.add('today');
+      console.log(this.maxDay);
+      if (i==this.maxDay) {
+        dayOfWeek.classList.add('max');
       }
       let barHeight = (this.weekArray[i].amount/this.maxAmount*this.maxHeight);
       dayOfWeek.innerHTML = `

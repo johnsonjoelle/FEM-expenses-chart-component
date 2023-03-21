@@ -43,15 +43,11 @@ img {
   margin-bottom: 1rem;
 }
 .balance .label {
-  font-size: 0.85rem;
   margin-bottom: 0.4rem;
 }
 .balance .balance__amt {
   font-weight: 700;
-  font-size: 1.5rem;
-}
-.balance .balance__logo {
-  height: 40px;
+  font-size: 2.05rem;
 }
 
 .details {
@@ -59,6 +55,9 @@ img {
 }
 .details .label {
   color: hsl(28, 10%, 53%);
+}
+.details h1 {
+  font-size: 2rem;
 }
 .details .details__chart-container {
   margin-bottom: 1.5rem;
@@ -74,15 +73,11 @@ img {
   font-size: 2.6rem;
   font-weight: 700;
 }
-.details .details__totals .label {
-  font-size: 0.9rem;
-}
 .details .details__totals .totals-previous {
   text-align: right;
 }
 .details .details__totals .percntg {
   font-weight: 700;
-  font-size: 0.95rem;
 }
 
 .chart {
@@ -98,19 +93,19 @@ img {
   justify-content: flex-end;
   flex-direction: column;
   gap: 0.5rem;
-  font-size: 0.8rem;
+  font-size: 0.92rem;
   cursor: pointer;
 }
 .chart .chart__day > div {
   transition: all 350ms;
 }
-.chart .chart__day:hover .chart__bar {
+.chart .chart__day:hover .chart__bar, .chart .chart__day:focus .chart__bar {
   opacity: 0.8;
 }
-.chart .chart__day:hover .chart__value {
+.chart .chart__day:hover .chart__value, .chart .chart__day:focus .chart__value {
   opacity: 1;
 }
-.chart .chart__day.today .chart__bar {
+.chart .chart__day.max .chart__bar {
   background-color: hsl(186, 34%, 60%);
 }
 .chart .chart__bar {
@@ -126,6 +121,7 @@ img {
   border-radius: 5px;
   text-align: center;
   font-weight: 700;
+  font-size: 1.1rem;
   opacity: 0;
 }
 
@@ -139,4 +135,28 @@ img {
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+@media screen and (max-width: 560px) {
+  main {
+    padding: 0 1rem;
+  }
+  .balance .label {
+    font-size: 0.85rem;
+  }
+  .balance .balance__logo {
+    height: 40px;
+  }
+  .details .details__totals .label {
+    font-size: 0.9rem;
+  }
+  .details .details__totals .percntg {
+    font-size: 0.95rem;
+  }
+  .chart .chart__day {
+    font-size: 0.8rem;
+  }
+  .chart .chart__value {
+    font-size: 0.6rem;
+  }
 }/*# sourceMappingURL=main.css.map */

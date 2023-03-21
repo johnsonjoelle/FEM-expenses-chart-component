@@ -22,7 +22,6 @@ body {
 main {
   width: 540px;
   max-width: 540px;
-  // margin: 0 auto;
   > * {
     border-radius: 1rem;
     padding: 1.5rem 2rem;
@@ -43,15 +42,11 @@ img {
   margin-bottom: 1rem;
   
   .label {
-    font-size: .85rem;
     margin-bottom: .4rem;
   }
   #{&}__amt {
     font-weight: fWeight(bold);
-    font-size: 1.5rem;
-  }
-  #{&}__logo {
-    height: 40px;
+    font-size: 2.05rem;
   }
 }
 
@@ -60,6 +55,10 @@ img {
 
   .label {
     color: a.$color-brown-md;
+  }
+
+  h1 {
+    font-size: 2rem;
   }
 
   #{&}__chart-container {
@@ -75,15 +74,11 @@ img {
       font-size: 2.6rem;
       font-weight: fWeight(bold);
     }
-    .label {
-      font-size: .9rem;
-    }
     .totals-previous {
       text-align: right;
     }
     .percntg {
       font-weight: fWeight(bold);
-      font-size: .95rem;
     }
   }
 }
@@ -98,12 +93,12 @@ img {
     @include flexDisplay(center, flex-end);
     flex-direction: column;
     gap: a.$chart-gap / 2;
-    font-size: .8rem;
+    font-size: .92rem;
     cursor: pointer;
     > div {
       transition: all 350ms;
     }
-    &:hover {
+    &:hover, &:focus {
       .chart__bar {
         opacity: .8;
       }
@@ -112,7 +107,7 @@ img {
       }
     }
   }
-  #{&}__day.today #{&}__bar {
+  #{&}__day.max #{&}__bar {
     background-color: a.$color-cyan;
   }
   #{&}__bar {
@@ -128,6 +123,7 @@ img {
     border-radius: a.$bar-border-radius;
     text-align: center;
     font-weight: fWeight(bold);
+    font-size: 1.1rem;
     opacity: 0;
   }
 }
@@ -141,5 +137,35 @@ img {
   text-align: center;
   a {
     color: hsl(228, 45%, 44%);
+  }
+}
+
+@media screen and (max-width: 560px) {
+  main {
+    padding: 0 1rem;
+  }
+  .balance {
+    .label {
+      font-size: .85rem;
+    }
+    #{&}__logo {
+      height: 40px;
+    }
+  } 
+  .details .details__totals{ 
+    .label {
+      font-size: .9rem;
+    }
+    .percntg {
+      font-size: .95rem;
+    }
+  }
+  .chart {
+    #{&}__day {
+      font-size: .8rem;
+    }
+    #{&}__value  {
+      font-size: .6rem;
+    }
   }
 }

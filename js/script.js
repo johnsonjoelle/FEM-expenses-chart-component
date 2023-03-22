@@ -51,4 +51,4 @@ class WeekSummary{
   }
 }
 
-const week = new WeekSummary("../data.json", document.getElementById('chart'));
+const week = new WeekSummary("./data.json", document.getElementById('chart'));

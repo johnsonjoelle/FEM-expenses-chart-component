@@ -7,7 +7,7 @@ class WeekSummary{
     fetch(dataSource)
     .then(response => response.json())
     .then(data => {
-      this.weekArray = data;
+      this.weekArray = data.weekSummary;
       this.findToday();
       this.buildChart();
     })

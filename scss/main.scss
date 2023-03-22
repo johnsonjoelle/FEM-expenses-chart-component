@@ -106,8 +106,11 @@ img {
         opacity: 1;
       }
     }
+    &:focus {
+      outline: none;
+    }
   }
-  #{&}__day.max #{&}__bar {
+  #{&}__day.today #{&}__bar {
     background-color: a.$color-cyan;
   }
   #{&}__bar {
@@ -143,21 +146,35 @@ img {
 @media screen and (max-width: 560px) {
   main {
     padding: 0 1rem;
+    > * {
+      padding: 1.3rem;
+    }
   }
   .balance {
     .label {
-      font-size: .85rem;
+      font-size: .9rem;
+    }
+    #{&}__amt {
+      font-size: 1.6rem;
     }
     #{&}__logo {
       height: 40px;
     }
   } 
-  .details .details__totals{ 
-    .label {
-      font-size: .9rem;
+  .details {
+    h1 {
+      font-size: 1.5rem;
     }
-    .percntg {
-      font-size: .95rem;
+    #{&}__totals{ 
+      .label {
+        font-size: .91rem;
+      }
+      .percntg {
+        font-size: .95rem;
+      }
+      .value {
+        font-size: 1.95rem;
+      }
     }
   }
   .chart {
@@ -165,6 +182,22 @@ img {
       font-size: .8rem;
     }
     #{&}__value  {
+      font-size: .6rem;
+    }
+  }
+  .chart {
+    gap: .35rem;
+    margin-top: 1rem;
+    
+    #{&}__day {
+      font-size: .8rem;
+    }
+    #{&}__bar {
+      width: calc(100% - .35rem);
+    }
+    #{&}__value {
+      padding-left: 0;
+      padding-right: 0;
       font-size: .6rem;
     }
   }

@@ -105,7 +105,10 @@ img {
 .chart .chart__day:hover .chart__value, .chart .chart__day:focus .chart__value {
   opacity: 1;
 }
-.chart .chart__day.max .chart__bar {
+.chart .chart__day:focus {
+  outline: none;
+}
+.chart .chart__day.today .chart__bar {
   background-color: hsl(186, 34%, 60%);
 }
 .chart .chart__bar {
@@ -141,22 +144,49 @@ img {
   main {
     padding: 0 1rem;
   }
+  main > * {
+    padding: 1.3rem;
+  }
   .balance .label {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+  }
+  .balance .balance__amt {
+    font-size: 1.6rem;
   }
   .balance .balance__logo {
     height: 40px;
   }
+  .details h1 {
+    font-size: 1.5rem;
+  }
   .details .details__totals .label {
-    font-size: 0.9rem;
+    font-size: 0.91rem;
   }
   .details .details__totals .percntg {
     font-size: 0.95rem;
+  }
+  .details .details__totals .value {
+    font-size: 1.95rem;
   }
   .chart .chart__day {
     font-size: 0.8rem;
   }
   .chart .chart__value {
+    font-size: 0.6rem;
+  }
+  .chart {
+    gap: 0.35rem;
+    margin-top: 1rem;
+  }
+  .chart .chart__day {
+    font-size: 0.8rem;
+  }
+  .chart .chart__bar {
+    width: calc(100% - 0.35rem);
+  }
+  .chart .chart__value {
+    padding-left: 0;
+    padding-right: 0;
     font-size: 0.6rem;
   }
 }/*# sourceMappingURL=main.css.map */
